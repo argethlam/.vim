@@ -1,0 +1,58 @@
+global !p
+def upperFirst(text):
+    if len(text) > 1:
+        return text[0].upper() + text[1:]
+    elif len(text) == 1:
+        return text.upper()
+    else:
+        return text;
+endglobal
+
+snippet job "RackHD job module code"
+// Copyright `date +%Y` Dell Inc. or its subsidiaries. All Rights Reserved.
+
+'use strict';
+
+var di = require('di');
+
+module.exports = ${1:name}JobFactory;
+
+di.annotate($1JobFactory, new di.Provide('Job.${2:`!p snip.rv=upperFirst(t[1])`}');
+di.annotate($1JobFactory, new di.Inject(
+    'Job.Base',
+    'Logger',
+    'Util'
+));
+
+function $1JobFactory(
+    BaseJob,
+    logger,
+    util
+) {
+    var logger = Logger.initialize($1JobFactory);
+
+    /**
+     * $3
+     *
+     * @param {Object} options - The input options for job
+     * @param {Object} context - The runtime context for job
+     * @param {String} taskId -  The task identifier
+     * @constructor
+     */
+    function $2Job(options, context, taskId) {
+        var self = this;
+        $2.super_.call(self, logger, options, context, taskId);
+
+        self.options = options;
+    }
+
+    util.inherits($2Job, BaseJob);
+
+    $2Job.prototype._run() {
+        var self = this;
+        self._done();
+   }
+
+    return $2Job;
+}
+endsnippet
