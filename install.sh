@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # current dir is ~/.vim/
-CURRENT_DIR='pwd'
+CURRENT_DIR=$(pwd)
 VUNDLE_DIR=$HOME/.vim/bundle
 
 echo "> setting up symlinks"
