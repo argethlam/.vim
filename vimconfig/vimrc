@@ -48,6 +48,9 @@ Plugin 'crusoexia/vim-monokai'
 " Plugin 'davidhalter/jedi-vim'
     "Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
+" NERDTree plugin
+Plugin 'scrooloose/nerdtree'
+
 " General plugins
 """"" Fancy status line at the bottom of window
 Plugin 'bling/vim-airline'
